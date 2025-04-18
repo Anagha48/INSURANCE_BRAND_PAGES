@@ -1,0 +1,175 @@
+window.onscroll = function() { scrollFunction() };
+var a = document.querySelector(".hamburger-menu");
+var m = document.querySelector(".hamburger");
+
+function scrollFunction() {
+    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+        document.querySelector(".navstyle").style.borderBottom = "#e0e0e0 SOLID 1px";
+        document.querySelector(".navstyle").style.background = "#fff";
+        document.querySelector(".navstyle .navbar-brand").style.transform = "translate(-50%, 0px)";
+        document.querySelector(".navstyle .navbar-brand #logo").style.width = "130px";
+    } else {
+        document.querySelector(".navstyle").style.borderBottom = "none";
+        document.querySelector(".navstyle").style.background = "none";
+        document.querySelector(".navstyle .navbar-brand").style.transform = "translate(-50%, 65px)";
+        document.querySelector(".navstyle .navbar-brand #logo").style.width = "160px";
+    }
+}
+
+
+
+window.onscroll = function() { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+        document.querySelector(".navstyle").style.borderBottom = "#e0e0e0 SOLID 1px";
+        document.querySelector(".navstyle").style.background = "#fff";
+        document.querySelector(".navstyle .navbar-brand").style.transform = "translate(-50%, 0px)";
+        document.querySelector(".navstyle .navbar-brand #logo").style.width = "130px";
+    } else {
+        document.querySelector(".navstyle").style.borderBottom = "none";
+        document.querySelector(".navstyle").style.background = "none";
+        document.querySelector(".navstyle .navbar-brand").style.transform = "translate(-50%, 65px)";
+        document.querySelector(".navstyle .navbar-brand #logo").style.width = "160px";
+    }
+}
+
+$(document).ready(function(){
+    $('.hero-slider').slick({
+        vertical: true,  // Ensures it scrolls vertically
+        slidesToShow: 3, // Adjust based on how many you want visible
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: true,
+        prevArrow: $('.slick-prev'),
+        nextArrow: $('.slick-next'),
+        infinite: true,
+        dots: true
+    });
+});
+
+
+m.addEventListener("click", () => {
+    a.classList.toggle("change");
+
+});
+$(function() {
+    $('.scroll1').infiniteslide({
+        speed: 120
+    });
+
+});
+
+$(function() {
+  if ($('#owl-demo1').lenght != 0 ){
+    $("#owl-demo1").brandCarousel({
+      navigation : true
+    });
+  }
+  if ($('.vertical-slider').lenght != 0){
+    $('.vertical-slider').slick({
+      vertical: true,
+      infinite: true,
+      verticalSwiping: true,
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 3,
+      slidesToScroll: 2,
+      autoplay: true,
+      speed: 1000
+    });
+  }
+  if ($('.hero-slider').lenght != 0) {
+    var width = window.innerWidth;
+    var slidesToShow = 3;
+
+    // On mobile
+    if ( width < 500) {
+      slidesToShow = 2;
+
+    }
+
+    $('.hero-slider').slick({
+      vertical: true,
+      infinite: true,
+      verticalSwiping: true,
+      centerMode: true,
+      draggable: false,
+
+      slidesToShow: slidesToShow,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 6000,
+      speed: 1000,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+
+    });
+    $('.hero-slider').show();
+  }
+   if ($('#show_more_faq').lenght != 0) {
+     $('#show_more_faq').on('click',function(){
+       $('.faqs .card').removeClass('hidden');
+       $('#show_more_faq').hide();
+     })
+   }
+});
+
+
+if($('#nav-tab').length != 0) {
+    $(document).ready(function() {
+      var triggerTabList = [].slice.call(document.querySelectorAll('#nav-tab a'))
+      triggerTabList.forEach(function(triggerEl) {
+          var tabTrigger = new bootstrap.Tab(triggerEl)
+
+          triggerEl.addEventListener('click', function(event) {
+              event.preventDefault()
+              tabTrigger.show()
+          })
+      })
+        $(".dropdown-menu a").click(function() {
+            var parent = $(this).parents(".dropdown").find('.dropdown-toggle');
+            parent.html($(this).text() + ' <span class="caret"></span>');
+        });
+
+    });
+}
+
+
+
+$(document).ready(function () {
+
+    if ($('.brands_slider').length) {
+        var brandsSlider = $('.brands_slider');
+
+        brandsSlider.owlCarousel(
+            {
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                nav: false,
+                dots: false,
+                autoWidth: true,
+                items: 5,
+                margin: 45
+            });
+
+        if ($('.brands_prev').length) {
+            var prev = $('.brands_prev');
+            prev.on('click', function () {
+                brandsSlider.trigger('prev.owl.carousel');
+            });
+        }
+
+        if ($('.brands_next').length) {
+            var next = $('.brands_next');
+            next.on('click', function () {
+                brandsSlider.trigger('next.owl.carousel');
+            });
+        }
+    }
+
+
+});
+
